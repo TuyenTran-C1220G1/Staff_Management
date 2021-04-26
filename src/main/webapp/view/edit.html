@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h3>Edit Staff</h3>
+    <p>
+        <a class="btn btn-primary" th:href="@{/staff}">
+            Back to staff list
+        </a>
+    </p>
+    <div id="form">
+        <form th:action="@{/staff/update}" th:object="${staffForm}"
+              method="POST" novalidate="novalidate" enctype="multipart/form-data">
+            <input type="hidden" th:field="*{id}"/>
+            <div>
+                <label class="form-label">Name</label>
+                <input class="form-control" type="text" th:field="*{name}"/>
+            </div>
+            <div>
+                <label class="form-label">Birthday</label>
+                <input class="form-control" type="date" th:field="*{birthday}"/>
+            </div>
+            <div>
+                <label class="form-label">Avatar</label>
+                <input class="form-control" type="file" th:field="*{avatar}"/>
+            </div>
+            <div>
+                <label class="form-label">Gender</label>
+                <select class="form-select" th:field="*{gender}">
+                    <option th:value="Male" th:text="Male"></option>
+                    <option th:value="Female" th:text="Female"></option>
+                </select>
+            </div>
+            <input style="margin-top: 8px" class="btn btn-primary" type="submit" value="Save"/>
+        </form>
+    </div>
+</div>
+
+<footer ></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+</body>
+</html>
